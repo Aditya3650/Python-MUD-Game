@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Check if the user provided the correct number of arguments
+if [ $# -ne 2 ]; then
+    echo "Usage: mygit-commit -m \"<commit_message>\""
+    exit 1
+fi
+
+# Check if the Git repository is initialized in the current directory
+if [ ! -d ".git" ]; then
+    echo "Error: This directory is not a Git repository. Please initialize it first."
+    exit 1
+fi
+
+if [ "$1" != "-m" ]; then
+    echo "Error: Invalid argument. Use -m to specify a commit message."
+    exit 1
+fi
+
+commit_message="$2"
+
+# Add all changes to the staging area and commit with the provided message
+git add .
+git commit -m "$commit_message"
+
+echo "Committed changes with message: $commit_message"
