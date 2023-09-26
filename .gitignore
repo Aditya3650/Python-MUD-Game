@@ -4,3 +4,4 @@ mygit-push
 mygit-create-directory
 mygit-delete-file
 mygit-delete-directory
+mygit-list-contents
